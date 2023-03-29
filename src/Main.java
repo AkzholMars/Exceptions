@@ -28,9 +28,9 @@ public class Main {
         HashMap userMap = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
-        userMap.put("akzhol", "qwerty123$");
-        userMap.put("marsbekov", "qazwsx12");
-        userMap.put("amarsbekov", "12345678abc");
+        userMap.put("akzhol", "123");
+        userMap.put("marsbekov", "qwe");
+        userMap.put("amarsbekov", "qwert");
 
         operatorList.add("+");
         operatorList.add("-");
@@ -40,7 +40,7 @@ public class Main {
         System.out.println("Введите логин:");
         String login = scanner.next();
         checkLogin(userMap, login);
-        System.out.println("Введите пароль");
+        System.out.println("Введите пароль:");
         String pswrd = scanner.next();
         checkAuthentication(userMap, login, pswrd);
 
@@ -53,7 +53,13 @@ public class Main {
                 int b = scanner.nextInt();
                 System.out.println("Введите арифмитеческий оператор: ");
                 String o = scanner.next();
-                checkOperation(o);
+                try {
+                    checkOperation(o);
+                } catch (InvalidArgumentException e){
+                    e.printStackTrace();
+                }
+
+
 
 
                 String c = a + " " + o + " " + b;
